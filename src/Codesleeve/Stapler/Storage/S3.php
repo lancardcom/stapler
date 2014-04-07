@@ -110,7 +110,7 @@ class S3 implements StorageInterface
 	 *
 	 * @return string
 	 */
-	protected function getBucket()
+    public function getBucket()
 	{
 		$bucketName = $this->attachedFile->bucket;
 		if (!$this->bucketExists) {
@@ -142,7 +142,7 @@ class S3 implements StorageInterface
 	 *
 	 * @return S3Client
 	 */
-	protected function getS3Client()
+	public function getS3Client()
 	{
 		return $this->s3ClientManager->getS3Client($this->attachedFile);
 	}

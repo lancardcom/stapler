@@ -197,6 +197,16 @@ class Attachment
 		$this->storageDriver = $storageDriver;
 	}
 
+    /**
+     * Accessor method for the storageDriver property.
+     *
+     * @return Codesleeve\Stapler\Storage\StorageInterface
+     */
+    public function getStorageDriver()
+    {
+        return $this->storageDriver;
+    }
+
 	/**
 	 * Mutator method for the instance property.
 	 * This provides a mechanism for the attachment to access properties of the
