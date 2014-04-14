@@ -493,7 +493,7 @@ class Attachment
 			}
 
 			$filePath = $this->path($style->name);
-			$this->move($file, $filePath);
+			$this->move($file, $filePath, $style->name);
 		}
 	}
 
@@ -538,7 +538,7 @@ class Attachment
 			}
 
 			$filePath = $this->path($style->name);
-			$this->move($file, $filePath);
+			$this->move($file, $filePath, $style->name);
 		}
 
 		$this->queuedForWrite = [];

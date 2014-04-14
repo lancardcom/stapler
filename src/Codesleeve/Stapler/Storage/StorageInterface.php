@@ -34,7 +34,8 @@ interface StorageInterface
 	 *
 	 * @param  UploadedFile $file
 	 * @param  string $filePath
+	 * @param  string $styleName
 	 * @return void
 	 */
-	public function move($file, $filePath);
+	public function move($file, $filePath, $styleName);
 }

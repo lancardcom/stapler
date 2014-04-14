@@ -79,11 +79,16 @@ class S3 implements StorageInterface
 	 *
 	 * @param  UploadedFile $file
 	 * @param  string $filePath
+	 * @param  string $styleName
 	 * @return void
 	 */
-	public function move($file, $filePath)
+	public function move($file, $filePath, $styleName)
 	{
- 		$this->getS3Client()->putObject(['Bucket' => $this->getBucket(), 'Key' => $filePath, 'SourceFile' => $file, 'ContentType' => $this->attachedFile->contentType(), 'ACL' => $this->attachedFile->ACL]);
+		$acl = $this->attachedFile->ACL;
+		if(is_array($acl)) {
+			$acl = $acl[$styleName];
+		}
+		$this->getS3Client()->putObject(['Bucket' => $this->getBucket(), 'Key' => $filePath, 'SourceFile' => $file, 'ContentType' => $this->attachedFile->contentType(), 'ACL' => $acl]);
 	}
 
 	/**

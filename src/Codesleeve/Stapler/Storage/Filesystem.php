@@ -66,13 +66,14 @@ class Filesystem implements StorageInterface
 	 *
 	 * @param  UploadedFile $file
 	 * @param  string $filePath
+	 * @param  string $styleName
 	 * @return void
 	 */
-	public function move($file, $filePath)
+	public function move($file, $filePath, $styleName)
 	{
- 		$this->buildDirectory($filePath);
- 		$this->moveFile($file, $filePath);
-        $this->setPermissions($filePath, $this->attachedFile->override_file_permissions);
+		$this->buildDirectory($filePath);
+		$this->moveFile($file, $filePath);
+		$this->setPermissions($filePath, $this->attachedFile->override_file_permissions);
 	}
 
 	/**
